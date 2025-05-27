@@ -5,12 +5,21 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="relative flex justify-between items-center px-8 pt-8 text-md tracking-widest uppercase font-semibold">
+    <nav className="relative flex justify-between items-center px-8 pt-8 text-md tracking-widest uppercase font-semibold z-50">
       {/* Left Menu - Desktop Only */}
       <div className="hidden sm:flex gap-8">
         <a href="#our-story" className="hover:underline">OUR STORY</a>
         <a href="#travel-stay" className="hover:underline">TRAVEL & STAY</a>
-        <a href="#info" className="hover:underline">INFO</a>
+        <div className="relative group">
+          <a href="#info" className="hover:underline">INFO</a>
+          <div className="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
+            <div className="bg-[var(--background)] border border-[var(--foreground)] rounded shadow-lg py-2 min-w-[150px]">
+              <a href="#menu" className="block px-4 py-2 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors">MENU</a>
+              <a href="#event" className="block px-4 py-2 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors">EVENT</a>
+              <a href="#registry" className="block px-4 py-2 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors">REGISTRY</a>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Mobile Menu Button */}
@@ -27,7 +36,7 @@ const Navbar = () => {
       </button>
 
       {/* Logo - Centered */}
-      <h1 className="absolute left-1/2 -translate-x-1/2 font-[Bodoni Moda] text-2xl sm:text-4xl tracking-wide text-center pointer-events-none">
+      <h1 className="absolute left-1/2 -translate-x-1/2 font-[Bodoni Moda] text-2xl sm:text-4xl tracking-wide text-center pointer-events-none z-50">
         JUSTIN & JULIA
       </h1>
 
@@ -43,6 +52,9 @@ const Navbar = () => {
           <a href="#our-story" className="hover:underline" onClick={() => setIsMenuOpen(false)}>OUR STORY</a>
           <a href="#travel-stay" className="hover:underline" onClick={() => setIsMenuOpen(false)}>TRAVEL & STAY</a>
           <a href="#info" className="hover:underline" onClick={() => setIsMenuOpen(false)}>INFO</a>
+          <a href="#menu" className="hover:underline" onClick={() => setIsMenuOpen(false)}>MENU</a>
+          <a href="#event" className="hover:underline" onClick={() => setIsMenuOpen(false)}>EVENT</a>
+          <a href="#registry" className="hover:underline" onClick={() => setIsMenuOpen(false)}>REGISTRY</a>
           <a href="#faqs" className="hover:underline" onClick={() => setIsMenuOpen(false)}>FAQS</a>
           <a href="#rsvp" className="border border-[var(--foreground)] px-6 py-2 rounded hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors" onClick={() => setIsMenuOpen(false)}>RSVP</a>
         </div>

@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { hero_image_1, hero_image_2, hero_image_3 } from "../assets";
 const Hero = () => (
-  <main className="flex-1 flex flex-col px-8 items-center justify-center">
+  <main className="min-h-screen flex-1 flex flex-col px-8 items-center justify-center">
     {/* Date */}
     <div className="relative w-full flex flex-col items-center justify-center">
       {/* Date Overlay */}
-      <div className="w-full flex items-center justify-center mb-8 sm:mb-0 sm:absolute sm:top-1/5">
-        <span className="font-[Bodoni Moda] text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-[var(--foreground)] tracking-widest text-center px-4 sm:px-8 py-4">
+      <div className="w-full h-full flex items-center justify-center mb-8 md:mb-0 md:absolute md:-top-1/3">
+        <span className="font-dancing-script text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-[var(--foreground)] tracking-widest text-center px-4 sm:px-8 py-4">
           16 · 03 · 2026
         </span>
       </div>
