@@ -7,7 +7,7 @@ const Hero = () => (
       {/* Date Overlay */}
       <div className="w-full h-full flex items-center justify-center mb-8 md:mb-0 md:absolute md:-top-1/3">
         <span className="font-dancing-script text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-[var(--foreground)] tracking-widest text-center px-4 sm:px-8 py-4">
-          16 · 03 · 2026
+          09 · 05 · 2026
         </span>
       </div>
       {/* Images Row */}
