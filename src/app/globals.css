@@ -33,3 +33,20 @@ body {
   color: var(--foreground);
   font-family: "Bodoni Moda", serif;
 }
+
+/* Font Classes */
+.font-dancing-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+.font-libre-baskerville {
+  font-family: 'Libre Baskerville', serif;
+}
+
+.font-bebas-neue {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.font-emilys-candy {
+  font-family: 'Emilys Candy', cursive;
+}
