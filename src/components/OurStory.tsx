@@ -40,7 +40,7 @@ const OurStory = () => {
               className="object-cover rounded-lg shadow-xl"
             />
             <div className="absolute -bottom-4 -right-4 bg-[var(--foreground)] text-[var(--background)] px-6 py-3 rounded-lg">
-              <span className="font-dancing-script text-xl">2018</span>
+              <span className="font-dancing-script text-xl">2025 | Capetown, South Africa</span>
             </div>
           </div>
         </div>

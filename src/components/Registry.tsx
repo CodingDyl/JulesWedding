@@ -22,7 +22,7 @@ const Registry = () => {
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           {/* Registry Option 1 */}
           <div className="border border-[var(--foreground)] rounded-lg p-8 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors duration-300">
-            <h3 className="font-dancing-script text-3xl mb-4">Crate & Barrel</h3>
+            <h3 className="font-dancing-script text-3xl mb-4">Le Creuset</h3>
             <p className="font-libre-baskerville text-lg mb-4">
               Home goods and kitchen essentials
             </p>
@@ -38,9 +38,9 @@ const Registry = () => {
 
           {/* Registry Option 2 */}
           <div className="border border-[var(--foreground)] rounded-lg p-8 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors duration-300">
-            <h3 className="font-dancing-script text-3xl mb-4">Target</h3>
+            <h3 className="font-dancing-script text-3xl mb-4">Honeymoon Fund</h3>
             <p className="font-libre-baskerville text-lg mb-4">
-              Everyday essentials and home decor
+              Instead of pots and pans, help us create memories that will last a lifetime.
             </p>
             <a 
               href="#" 
