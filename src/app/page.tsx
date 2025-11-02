@@ -6,6 +6,8 @@ import OurStory from "../components/OurStory";
 import EventDetails from "../components/EventDetails";
 import TravelStay from "../components/TravelStay";
 import Registry from "../components/Registry";
+import SpotifyList from "../components/SpotifyList";
+import FAQ from "../components/FAQ";
 import RSVP from "../components/RSVP";
 import Footer from "../components/Footer";
 
@@ -32,6 +34,12 @@ export default function Home() {
       
       {/* Registry */}
       <Registry />
+      
+      {/* Song Requests */}
+      <SpotifyList />
+      
+      {/* FAQs */}
+      <FAQ />
       
       {/* RSVP */}
       <RSVP />
