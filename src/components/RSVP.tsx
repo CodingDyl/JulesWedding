@@ -1,20 +1,40 @@
 'use client'
 import { useState } from 'react';
 
+interface Guest {
+  id: string;
+  name: string;
+  email: string;
+  dietary: string;
+}
+
 const RSVP = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     attending: '',
-    guests: '',
     dietary: '',
     message: ''
   });
 
+  const [guests, setGuests] = useState<Guest[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingGuest, setEditingGuest] = useState<Guest | null>(null);
+  const [guestFormData, setGuestFormData] = useState({
+    name: '',
+    email: '',
+    dietary: ''
+  });
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('RSVP submitted:', formData);
+    // TODO: Connect to Firebase backend
+    const submissionData = {
+      ...formData,
+      guests: guests
+    };
+    console.log('RSVP submitted:', submissionData);
+    // This will be sent to Firebase when backend is set up
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -24,12 +44,74 @@ const RSVP = () => {
     });
   };
 
+  const handleAddGuest = () => {
+    const newGuest: Guest = {
+      id: Date.now().toString(),
+      name: '',
+      email: '',
+      dietary: ''
+    };
+    setEditingGuest(newGuest);
+    setGuestFormData({ name: '', email: '', dietary: '' });
+    setIsModalOpen(true);
+  };
+
+  const handleEditGuest = (guest: Guest) => {
+    setEditingGuest(guest);
+    setGuestFormData({
+      name: guest.name,
+      email: guest.email,
+      dietary: guest.dietary
+    });
+    setIsModalOpen(true);
+  };
+
+  const handleGuestFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setGuestFormData({
+      ...guestFormData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSaveGuest = () => {
+    if (editingGuest && guestFormData.name.trim() && guestFormData.email.trim()) {
+      const updatedGuest: Guest = {
+        ...editingGuest,
+        name: guestFormData.name.trim(),
+        email: guestFormData.email.trim(),
+        dietary: guestFormData.dietary.trim()
+      };
+
+      if (guests.find(g => g.id === editingGuest.id)) {
+        // Update existing guest
+        setGuests(guests.map(g => g.id === editingGuest.id ? updatedGuest : g));
+      } else {
+        // Add new guest
+        setGuests([...guests, updatedGuest]);
+      }
+
+      setIsModalOpen(false);
+      setEditingGuest(null);
+      setGuestFormData({ name: '', email: '', dietary: '' });
+    }
+  };
+
+  const handleDeleteGuest = (guestId: string) => {
+    setGuests(guests.filter(g => g.id !== guestId));
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setEditingGuest(null);
+    setGuestFormData({ name: '', email: '', dietary: '' });
+  };
+
   return (
     <section id="rsvp" className="py-20 px-8 bg-[var(--background)]">
       <div className="max-w-2xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-dancing-script text-5xl md:text-7xl text-[var(--foreground)] mb-4">
+          <h2 className="font-dancing-script text-5xl md:text-7xl text-[var(--text-accent)] mb-4">
             RSVP
           </h2>
           <div className="w-24 h-px bg-[var(--foreground)] mx-auto"></div>
@@ -49,7 +131,7 @@ const RSVP = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-[var(--foreground)] rounded-lg bg-transparent font-libre-baskerville focus:outline-none focus:ring-2 focus:ring-[var(--foreground)]"
+              className="w-full px-4 py-3 border border-[var(--text-main)] rounded-lg bg-transparent font-libre-baskerville focus:outline-none focus:ring-2 focus:ring-[var(--text-accent)]"
             />
           </div>
 
@@ -65,7 +147,7 @@ const RSVP = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-[var(--foreground)] rounded-lg bg-transparent font-libre-baskerville focus:outline-none focus:ring-2 focus:ring-[var(--foreground)]"
+              className="w-full px-4 py-3 border border-[var(--text-main)] rounded-lg bg-transparent font-libre-baskerville focus:outline-none focus:ring-2 focus:ring-[var(--text-accent)]"
             />
           </div>
 
@@ -80,31 +162,11 @@ const RSVP = () => {
               value={formData.attending}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-[var(--foreground)] rounded-lg bg-transparent font-libre-baskerville focus:outline-none focus:ring-2 focus:ring-[var(--foreground)]"
+              className="w-full px-4 py-3 border border-[var(--text-main)] rounded-lg bg-transparent font-libre-baskerville focus:outline-none focus:ring-2 focus:ring-[var(--text-accent)]"
             >
               <option value="">Please select...</option>
               <option value="yes">Yes, I will attend</option>
               <option value="no">No, I cannot attend</option>
-            </select>
-          </div>
-
-          {/* Number of Guests */}
-          <div>
-            <label htmlFor="guests" className="block font-libre-baskerville text-lg mb-2">
-              Number of Guests
-            </label>
-            <select
-              id="guests"
-              name="guests"
-              value={formData.guests}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border border-[var(--foreground)] rounded-lg bg-transparent font-libre-baskerville focus:outline-none focus:ring-2 focus:ring-[var(--foreground)]"
-            >
-              <option value="">Please select...</option>
-              <option value="1">1 Guest</option>
-              <option value="2">2 Guests</option>
-              <option value="3">3 Guests</option>
-              <option value="4">4 Guests</option>
             </select>
           </div>
 
@@ -120,8 +182,48 @@ const RSVP = () => {
               value={formData.dietary}
               onChange={handleChange}
               placeholder="e.g., Vegetarian, Gluten-free, Allergies"
-              className="w-full px-4 py-3 border border-[var(--foreground)] rounded-lg bg-transparent font-libre-baskerville focus:outline-none focus:ring-2 focus:ring-[var(--foreground)]"
+              className="w-full px-4 py-3 border border-[var(--text-main)] rounded-lg bg-transparent font-libre-baskerville focus:outline-none focus:ring-2 focus:ring-[var(--text-accent)]"
             />
+          </div>
+
+          {/* Add Guests */}
+          <div>
+            <label className="block font-libre-baskerville text-lg mb-2">
+              Additional Guests
+            </label>
+            <button
+              type="button"
+              onClick={handleAddGuest}
+              className="w-full px-4 py-3 border-2 border-dashed border-[var(--text-main)] rounded-lg bg-transparent font-libre-baskerville hover:bg-[var(--bg-secondary)]/30 transition-colors duration-300 text-[var(--text-main)]"
+            >
+              + Add Guest
+            </button>
+
+            {/* Guest List */}
+            {guests.length > 0 && (
+              <div className="mt-4 space-y-3">
+                {guests.map((guest) => (
+                  <div key={guest.id} className="flex items-center gap-3 p-3 border border-[var(--text-main)] rounded-lg bg-[var(--bg-secondary)]/10">
+                    <button
+                      type="button"
+                      onClick={() => handleEditGuest(guest)}
+                      className="flex-1 text-left font-libre-baskerville text-[var(--text-main)] hover:underline"
+                    >
+                      <span className="font-semibold">{guest.name || 'Unnamed Guest'}</span>
+                      {guest.email && <span className="text-sm text-gray-600 ml-2">({guest.email})</span>}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteGuest(guest.id)}
+                      className="text-red-500 hover:text-red-700 font-libre-baskerville text-sm"
+                      aria-label="Delete guest"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Message */}
@@ -144,7 +246,7 @@ const RSVP = () => {
           <div className="text-center pt-8">
             <button
               type="submit"
-              className="bg-[var(--foreground)] text-[var(--background)] px-12 py-4 rounded-lg font-libre-baskerville text-lg hover:bg-opacity-90 transition-colors duration-300"
+              className="bg-[var(--text-accent)] text-[var(--bg-primary)] px-12 py-4 rounded-lg font-libre-baskerville text-lg hover:bg-[var(--text-main)] transition-colors duration-300"
             >
               Send RSVP
             </button>
@@ -152,12 +254,95 @@ const RSVP = () => {
         </form>
 
         {/* RSVP Deadline */}
-        <div className="text-center mt-12 p-6 border border-[var(--foreground)] rounded-lg">
+        <div className="text-center mt-12 p-6 border border-[var(--text-main)] rounded-lg bg-[var(--bg-secondary)]/10">
           <p className="font-libre-baskerville text-lg">
-            Please RSVP by <span className="font-semibold">August 1st, 2026</span>
+            Please RSVP by <span className="font-semibold">28 February 2026</span>
           </p>
         </div>
       </div>
+
+      {/* Guest Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-[var(--bg-primary)] border-2 border-[var(--text-accent)] rounded-lg p-6 md:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="font-dancing-script text-3xl text-[var(--text-accent)]">
+                Guest Information
+              </h3>
+              <button
+                onClick={handleCloseModal}
+                className="text-[var(--text-main)] hover:text-[var(--text-accent)] text-2xl"
+                aria-label="Close modal"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="space-y-6">
+              {/* Guest Name */}
+              <div>
+                <label htmlFor="guestName" className="block font-libre-baskerville text-lg mb-2">
+                  Guest Name *
+                </label>
+                <input
+                  type="text"
+                  id="guestName"
+                  name="name"
+                  value={guestFormData.name}
+                  onChange={handleGuestFormChange}
+                  required
+                  placeholder="Enter guest name"
+                  className="w-full px-4 py-3 border border-[var(--text-main)] rounded-lg bg-transparent font-libre-baskerville focus:outline-none focus:ring-2 focus:ring-[var(--text-accent)]"
+                />
+              </div>
+
+              {/* Guest Email */}
+              <div>
+                <label htmlFor="guestEmail" className="block font-libre-baskerville text-lg mb-2">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="guestEmail"
+                  name="email"
+                  value={guestFormData.email}
+                  onChange={handleGuestFormChange}
+                  required
+                  placeholder="Enter guest email"
+                  className="w-full px-4 py-3 border border-[var(--text-main)] rounded-lg bg-transparent font-libre-baskerville focus:outline-none focus:ring-2 focus:ring-[var(--text-accent)]"
+                />
+              </div>
+
+              {/* Guest Dietary Requirements */}
+              <div>
+                <label htmlFor="guestDietary" className="block font-libre-baskerville text-lg mb-2">
+                  Dietary Requirements
+                </label>
+                <textarea
+                  id="guestDietary"
+                  name="dietary"
+                  value={guestFormData.dietary}
+                  onChange={handleGuestFormChange}
+                  rows={3}
+                  placeholder="e.g., Vegetarian, Gluten-free, Allergies"
+                  className="w-full px-4 py-3 border border-[var(--foreground)] rounded-lg bg-transparent font-libre-baskerville focus:outline-none focus:ring-2 focus:ring-[var(--foreground)] resize-none"
+                />
+              </div>
+
+              {/* Complete Button */}
+              <div className="text-center pt-4">
+                <button
+                  type="button"
+                  onClick={handleSaveGuest}
+                  className="bg-[var(--text-accent)] text-[var(--bg-primary)] px-10 py-3 rounded-lg font-libre-baskerville text-lg hover:bg-[var(--text-main)] transition-colors duration-300"
+                >
+                  Complete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

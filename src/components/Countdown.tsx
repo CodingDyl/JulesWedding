@@ -32,13 +32,13 @@ const Countdown = () => {
   return (
     <section className="py-20 px-8 bg-[var(--background)]">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="font-dancing-script text-4xl md:text-6xl text-[var(--foreground)] mb-8">
+        <h2 className="font-dancing-script text-4xl md:text-6xl text-[var(--text-accent)] mb-8">
           Counting Down to Our Special Day
         </h2>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="text-center">
-            <div className="bg-[var(--foreground)] text-[var(--background)] rounded-lg p-6 mb-4">
+            <div className="bg-[var(--text-accent)] text-[var(--bg-primary)] rounded-lg p-6 mb-4">
               <div className="font-dancing-script text-3xl md:text-4xl font-bold">
                 {timeLeft.days}
               </div>
@@ -47,7 +47,7 @@ const Countdown = () => {
           </div>
           
           <div className="text-center">
-            <div className="bg-[var(--foreground)] text-[var(--background)] rounded-lg p-6 mb-4">
+            <div className="bg-[var(--text-accent)] text-[var(--bg-primary)] rounded-lg p-6 mb-4">
               <div className="font-dancing-script text-3xl md:text-4xl font-bold">
                 {timeLeft.hours}
               </div>
@@ -56,7 +56,7 @@ const Countdown = () => {
           </div>
           
           <div className="text-center">
-            <div className="bg-[var(--foreground)] text-[var(--background)] rounded-lg p-6 mb-4">
+            <div className="bg-[var(--text-accent)] text-[var(--bg-primary)] rounded-lg p-6 mb-4">
               <div className="font-dancing-script text-3xl md:text-4xl font-bold">
                 {timeLeft.minutes}
               </div>
@@ -65,7 +65,7 @@ const Countdown = () => {
           </div>
           
           <div className="text-center">
-            <div className="bg-[var(--foreground)] text-[var(--background)] rounded-lg p-6 mb-4">
+            <div className="bg-[var(--text-accent)] text-[var(--bg-primary)] rounded-lg p-6 mb-4">
               <div className="font-dancing-script text-3xl md:text-4xl font-bold">
                 {timeLeft.seconds}
               </div>

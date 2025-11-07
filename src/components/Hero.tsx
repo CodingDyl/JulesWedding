@@ -6,7 +6,7 @@ const Hero = () => (
     <div className="relative w-full flex flex-col items-center justify-center">
       {/* Date Overlay */}
       <div className="w-full h-full flex items-center justify-center mb-8 md:mb-0 md:absolute md:-top-1/3">
-        <span className="font-dancing-script text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-[var(--foreground)] tracking-widest text-center px-4 sm:px-8 py-4">
+        <span className="font-dancing-script text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-[var(--text-accent)] tracking-widest text-center px-4 sm:px-8 py-4">
           09 · 05 · 2026
         </span>
       </div>
@@ -18,8 +18,8 @@ const Hero = () => (
             src={hero_image_2}
             alt="wedding left"
             width={300}
-            height={450}
-            className="object-cover rounded shadow-lg"
+            height={300}
+            className="object-cover rounded shadow-lg w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px]"
           />
         </div>
         {/* Center Image */}
@@ -40,8 +40,8 @@ const Hero = () => (
             src={hero_image_3}
             alt="wedding right"
             width={300}
-            height={450}
-            className="object-cover rounded shadow-lg"
+            height={300}
+            className="object-cover rounded shadow-lg w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px]"
           />
         </div>
       </div>

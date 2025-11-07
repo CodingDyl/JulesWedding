@@ -13,10 +13,10 @@ const Navbar = () => {
         <div className="relative group">
           <a href="#info" className="hover:underline">INFO</a>
           <div className="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
-            <div className="bg-[var(--background)] border border-[var(--foreground)] rounded shadow-lg py-2 min-w-[150px]">
-              <a href="#menu" className="block px-4 py-2 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors">MENU</a>
-              <a href="#event" className="block px-4 py-2 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors">EVENT</a>
-              <a href="#registry" className="block px-4 py-2 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors">REGISTRY</a>
+            <div className="bg-[var(--bg-primary)] border border-[var(--text-main)] rounded shadow-lg py-2 min-w-[150px]">
+              <a href="#menu" className="block px-4 py-2 hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors">MENU</a>
+              <a href="#event" className="block px-4 py-2 hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors">EVENT</a>
+              <a href="#registry" className="block px-4 py-2 hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors">REGISTRY</a>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@ const Navbar = () => {
       {/* Right Menu - Desktop Only */}
       <div className="hidden sm:flex gap-6 items-center">
         <a href="#faqs" className="hover:underline">FAQS</a>
-        <a href="#rsvp" className="border border-[var(--foreground)] px-4 py-1 rounded hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors">RSVP</a>
+        <a href="#rsvp" className="border border-[var(--text-accent)] px-4 py-1 rounded hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors">RSVP</a>
       </div>
 
       {/* Mobile Navigation */}
@@ -56,7 +56,7 @@ const Navbar = () => {
           <a href="#event" className="hover:underline" onClick={() => setIsMenuOpen(false)}>EVENT</a>
           <a href="#registry" className="hover:underline" onClick={() => setIsMenuOpen(false)}>REGISTRY</a>
           <a href="#faqs" className="hover:underline" onClick={() => setIsMenuOpen(false)}>FAQS</a>
-          <a href="#rsvp" className="border border-[var(--foreground)] px-6 py-2 rounded hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors" onClick={() => setIsMenuOpen(false)}>RSVP</a>
+          <a href="#rsvp" className="border border-[var(--text-accent)] px-6 py-2 rounded hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors" onClick={() => setIsMenuOpen(false)}>RSVP</a>
         </div>
       </div>
     </nav>

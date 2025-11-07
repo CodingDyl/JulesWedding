@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="py-16 px-8 bg-[var(--foreground)] text-[var(--background)]">
+    <footer className="py-16 px-8 bg-[var(--text-accent)] text-[var(--bg-primary)]">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-3 gap-12">
           {/* Contact Information */}
@@ -8,8 +8,8 @@ const Footer = () => {
             <h3 className="font-dancing-script text-3xl mb-6">Contact Us</h3>
             <div className="space-y-3 font-libre-baskerville">
               <p>Justin & Julia</p>
-              <p>Email: justin.julia@email.com</p>
-              <p>Phone: (555) 123-4567</p>
+              <p>Email: just.s.blume@gmail.com</p>
+              <p>Phone: 0713615710</p>
             </div>
           </div>
 
@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[var(--background)] mt-12 pt-8 text-center">
+        <div className="border-t border-[var(--bg-primary)]/30 mt-12 pt-8 text-center">
           <p className="font-libre-baskerville text-sm">
             © 2026 Justin & Julia. All rights reserved.
           </p>

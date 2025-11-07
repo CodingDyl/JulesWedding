@@ -69,7 +69,7 @@ const FAQ = () => {
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-dancing-script text-5xl md:text-7xl text-[var(--foreground)] mb-4">
+          <h2 className="font-dancing-script text-5xl md:text-7xl text-[var(--text-accent)] mb-4">
             FAQs
           </h2>
           <div className="w-24 h-px bg-[var(--foreground)] mx-auto mb-6"></div>
@@ -83,21 +83,21 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-[var(--foreground)] rounded-lg overflow-hidden transition-all duration-300"
+                className="border border-[var(--text-main)] rounded-lg overflow-hidden transition-all duration-300"
             >
               {/* Question */}
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-[var(--foreground)]/5 transition-colors duration-300"
+                className="w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-[var(--bg-secondary)]/30 transition-colors duration-300"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
               >
-                <h3 className="font-libre-baskerville text-lg md:text-xl font-semibold text-[var(--foreground)] pr-4">
+                <h3 className="font-libre-baskerville text-lg md:text-xl font-semibold text-[var(--text-main)] pr-4">
                   {faq.question}
                 </h3>
                 <div className="flex-shrink-0">
                   <svg
-                    className={`w-6 h-6 text-[var(--foreground)] transition-transform duration-300 ${
+                    className={`w-6 h-6 text-[var(--text-main)] transition-transform duration-300 ${
                       openIndex === index ? 'rotate-180' : ''
                     }`}
                     fill="none"
@@ -119,8 +119,8 @@ const FAQ = () => {
                   openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-6 py-4 md:px-8 md:py-6 bg-[var(--foreground)]/5 border-t border-[var(--foreground)]/20">
-                  <p className="font-libre-baskerville text-base md:text-lg leading-relaxed text-[var(--foreground)]/90">
+                <div className="px-6 py-4 md:px-8 md:py-6 bg-[var(--bg-secondary)]/20 border-t border-[var(--text-main)]/20">
+                  <p className="font-libre-baskerville text-base md:text-lg leading-relaxed text-[var(--text-main)]/90">
                     {faq.answer}
                   </p>
                 </div>
@@ -131,19 +131,19 @@ const FAQ = () => {
 
         {/* Contact Section */}
         <div className="mt-16 text-center">
-          <div className="border border-[var(--foreground)] rounded-lg p-8 max-w-2xl mx-auto">
-            <h3 className="font-dancing-script text-3xl text-[var(--foreground)] mb-4">
+            <div className="border border-[var(--text-main)] rounded-lg p-8 max-w-2xl mx-auto bg-[var(--bg-secondary)]/10">
+            <h3 className="font-dancing-script text-3xl text-[var(--text-accent)] mb-4">
               Still Have Questions?
             </h3>
             <p className="font-libre-baskerville text-lg leading-relaxed mb-4">
               We'd love to hear from you! If you have any other questions or concerns, please don't hesitate to reach out to us.
             </p>
             <div className="space-y-2 font-libre-baskerville">
-              <p className="text-[var(--foreground)]">
-                <span className="font-semibold">Email:</span> justin.julia@email.com
+              <p className="text-[var(--text-main)]">
+                <span className="font-semibold">Email:</span> just.s.blume@gmail.com
               </p>
-              <p className="text-[var(--foreground)]">
-                <span className="font-semibold">Phone:</span> (555) 123-4567
+              <p className="text-[var(--text-main)]">
+                <span className="font-semibold">Phone:</span> 0713615710
               </p>
             </div>
           </div>

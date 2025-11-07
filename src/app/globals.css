@@ -4,28 +4,51 @@
 
 
 :root {
-  --background: #FDF5E6;
-  --foreground: #9DC183;
-  --ivory: #FDF5E6;
-  --sage: #9DC183;
-  --gold: #D4AF37;
+  /* Primary Colors */
+  --primary: #EDE6DE;
+  --secondary: #DCC5B1;
+  --tertiary: #C8A890;
+  
+  /* Text Colors */
+  --text-main: #B38D73;
+  --text-accent: #9D735C;
+  
+  /* Background Colors */
+  --bg-primary: #EDE6DE;
+  --bg-secondary: #DCC5B1;
+  --bg-tertiary: #C8A890;
+  
+  /* Legacy variables for compatibility */
+  --background: var(--bg-primary);
+  --foreground: var(--text-main);
 }
 
 @theme inline {
-  --color-background: var(--ivory);
-  --color-foreground: var(--sage);
-  --color-ivory: var(--ivory);
-  --color-sage: var(--sage);
-  --color-gold: var(--gold);
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-main);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-text-main: var(--text-main);
+  --color-text-accent: var(--text-accent);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #f1f1f1;
-    --foreground: #111111;
+    /* Keep earthy tones even in dark mode preference */
+    --background: var(--bg-primary);
+    --foreground: var(--text-main);
   }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Offset for navbar if needed */
 }
 
 body {
