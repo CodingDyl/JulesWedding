@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model RSVP {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  email     String   @db.VarChar(255)
+  attending String   @db.VarChar(10) // 'yes' or 'no'
+  dietary   String?  @db.Text
+  message   String?  @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+  
+  guests Guest[]
+  
+  @@index([email])
+  @@index([createdAt])
+  @@map("rsvps")
+}
+
+model Guest {
+  id        Int      @id @default(autoincrement())
+  rsvpId    Int      @map("rsvp_id")
+  name      String   @db.VarChar(255)
+  email     String   @db.VarChar(255)
+  dietary   String?  @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+  
+  rsvp RSVP @relation(fields: [rsvpId], references: [id], onDelete: Cascade)
+  
+  @@index([rsvpId])
+  @@map("guests")
+}
+
+model Song {
+  id          Int      @id @default(autoincrement())
+  songTitle   String   @map("song_title") @db.VarChar(255)
+  artist      String   @db.VarChar(255)
+  submittedBy String?  @map("submitted_by") @db.VarChar(255)
+  createdAt   DateTime @default(now()) @map("created_at")
+  
+  @@index([createdAt])
+  @@map("songs")
+}

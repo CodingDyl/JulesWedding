@@ -25,16 +25,66 @@ const RSVP = () => {
     email: '',
     dietary: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Connect to Firebase backend
-    const submissionData = {
-      ...formData,
-      guests: guests
-    };
-    console.log('RSVP submitted:', submissionData);
-    // This will be sent to Firebase when backend is set up
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(false);
+
+    try {
+      const submissionData = {
+        name: formData.name,
+        email: formData.email,
+        attending: formData.attending as 'yes' | 'no',
+        dietary: formData.dietary || undefined,
+        message: formData.message || undefined,
+        guests: guests.map(g => ({
+          name: g.name,
+          email: g.email,
+          dietary: g.dietary || undefined
+        }))
+      };
+
+      const response = await fetch('/api/rsvp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit RSVP');
+      }
+
+      // Success!
+      setSubmitSuccess(true);
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        attending: '',
+        dietary: '',
+        message: ''
+      });
+      setGuests([]);
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitSuccess(false);
+      }, 5000);
+    } catch (error) {
+      console.error('RSVP submission error:', error);
+      setSubmitError(error instanceof Error ? error.message : 'Failed to submit RSVP. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -246,11 +296,28 @@ const RSVP = () => {
           <div className="text-center pt-8">
             <button
               type="submit"
-              className="bg-[var(--text-accent)] text-[var(--bg-primary)] px-12 py-4 rounded-lg font-libre-baskerville text-lg hover:bg-[var(--text-main)] transition-colors duration-300"
+              disabled={isSubmitting}
+              className="bg-[var(--text-accent)] text-[var(--bg-primary)] px-12 py-4 rounded-lg font-libre-baskerville text-lg hover:bg-[var(--text-main)] transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Send RSVP
+              {isSubmitting ? 'Submitting...' : 'Send RSVP'}
             </button>
           </div>
+
+          {/* Error Message */}
+          {submitError && (
+            <div className="mt-4 p-4 border border-red-500 rounded-lg bg-red-50 text-red-700 text-center">
+              <p className="font-libre-baskerville">{submitError}</p>
+            </div>
+          )}
+
+          {/* Success Message */}
+          {submitSuccess && (
+            <div className="mt-4 p-4 border border-green-500 rounded-lg bg-green-50 text-green-700 text-center">
+              <p className="font-libre-baskerville">
+                Thank you! Your RSVP has been submitted successfully. We can't wait to celebrate with you! 💕
+              </p>
+            </div>
+          )}
         </form>
 
         {/* RSVP Deadline */}

@@ -6,21 +6,53 @@ const SpotifyList = () => {
   const [artist, setArtist] = useState('');
   const [submittedBy, setSubmittedBy] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (songTitle.trim() && artist.trim()) {
-      // TODO: Connect to backend API when ready
-      // For now, just show success message
+    if (!songTitle.trim() || !artist.trim()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setIsSubmitted(false);
+
+    try {
+      const response = await fetch('/api/songs', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          song_title: songTitle.trim(),
+          artist: artist.trim(),
+          submitted_by: submittedBy.trim() || undefined,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit song request');
+      }
+
+      // Success!
       setIsSubmitted(true);
       setSongTitle('');
       setArtist('');
       setSubmittedBy('');
-      
-      // Reset success message after 3 seconds
+
+      // Reset success message after 5 seconds
       setTimeout(() => {
         setIsSubmitted(false);
-      }, 3000);
+      }, 5000);
+    } catch (error) {
+      console.error('Song submission error:', error);
+      setSubmitError(error instanceof Error ? error.message : 'Failed to submit song request. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -90,14 +122,22 @@ const SpotifyList = () => {
                 <div className="text-center pt-4">
                   <button
                     type="submit"
-                    className="bg-[var(--text-accent)] text-[var(--bg-primary)] px-10 py-3 rounded-lg font-libre-baskerville text-lg hover:bg-[var(--text-main)] transition-colors duration-300"
+                    disabled={isSubmitting}
+                    className="bg-[var(--text-accent)] text-[var(--bg-primary)] px-10 py-3 rounded-lg font-libre-baskerville text-lg hover:bg-[var(--text-main)] transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Submit Song
+                    {isSubmitting ? 'Submitting...' : 'Submit Song'}
                   </button>
                 </div>
               </div>
             </div>
           </form>
+
+          {/* Error Message */}
+          {submitError && (
+            <div className="mt-4 p-4 border border-red-500 rounded-lg bg-red-50 text-red-700 text-center">
+              <p className="font-libre-baskerville">{submitError}</p>
+            </div>
+          )}
 
           {/* Success Message */}
           {isSubmitted && (
