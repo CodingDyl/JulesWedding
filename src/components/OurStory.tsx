@@ -5,7 +5,7 @@ import just_2 from "../assets/just_2.jpeg";
 
 const OurStory = () => {
   return (
-    <section id="our-story" className="py-20 px-8 bg-transparent relative">
+    <section id="our-story" className="py-16 md:py-20 px-4 md:px-8 bg-transparent relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -16,7 +16,7 @@ const OurStory = () => {
         </div>
 
         {/* Story Content */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center">
           <div className="space-y-6">
             <p className="font-libre-baskerville text-lg leading-relaxed">
               On a rainy Easter weekend, in the middle of the Free State, Justin found himself sitting next to Jules at the Lush music festival. One well placed reference to Brooklyn 99 led to us spending the entire weekend together, jolling and having the best time.
@@ -33,7 +33,7 @@ const OurStory = () => {
           </div>
           
           {/* Photo Collage - Desktop */}
-          <div className="hidden sm:block relative h-[500px] md:h-[600px]">
+          <div className="hidden md:block relative h-[450px] md:h-[500px] lg:h-[600px]">
             {/* Main Image */}
             <div className="absolute top-0 left-0 md:left-8 z-10">
               <div className="bg-white p-2 rounded shadow-xl rotate-[-3deg] hover:rotate-0 transition-transform duration-300">
@@ -42,7 +42,7 @@ const OurStory = () => {
                   alt="Justin and Jules"
                   width={320}
                   height={400}
-                  className="object-cover rounded w-[260px] h-[320px] md:w-[320px] md:h-[400px]"
+                  className="object-cover rounded w-[220px] h-[275px] md:w-[260px] md:h-[320px] lg:w-[320px] lg:h-[400px]"
                 />
               </div>
               <div className="absolute -bottom-2 left-4 bg-[var(--text-accent)] text-[var(--bg-primary)] px-4 py-2 rounded-lg">
@@ -58,7 +58,7 @@ const OurStory = () => {
                   alt="Justin and Julia"
                   width={160}
                   height={200}
-                  className="object-cover rounded w-[140px] h-[175px] md:w-[160px] md:h-[200px]"
+                  className="object-cover rounded w-[120px] h-[150px] md:w-[140px] md:h-[175px] lg:w-[160px] lg:h-[200px]"
                 />
               </div>
             </div>
@@ -71,7 +71,7 @@ const OurStory = () => {
                   alt="Justin and Julia"
                   width={180}
                   height={220}
-                  className="object-cover rounded w-[150px] h-[185px] md:w-[180px] md:h-[220px]"
+                  className="object-cover rounded w-[130px] h-[160px] md:w-[150px] md:h-[185px] lg:w-[180px] lg:h-[220px]"
                 />
               </div>
             </div>

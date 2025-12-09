@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="py-16 px-8 bg-[var(--text-accent)] text-[var(--bg-primary)] relative">
+    <footer className="py-12 md:py-16 px-4 md:px-8 bg-[var(--text-accent)] text-[var(--bg-primary)] relative">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-3 gap-12">
           {/* Contact Information */}

@@ -3,7 +3,7 @@ import just_7 from "../assets/just_7.jpeg";
 
 const Registry = () => {
   return (
-    <section id="registry" className="py-20 px-8 bg-transparent relative">
+    <section id="registry" className="py-16 md:py-20 px-4 md:px-8 bg-transparent relative">
       <div className="max-w-4xl mx-auto text-center">
         {/* Section Header with Image */}
         <div className="mb-16 relative">

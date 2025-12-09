@@ -5,9 +5,9 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="absolute top-0 left-0 right-0 flex justify-between items-center px-8 pt-8 text-md tracking-widest uppercase font-semibold z-50 bg-transparent">
+    <nav className="absolute top-0 left-0 right-0 flex justify-between items-center px-4 md:px-8 pt-6 md:pt-8 text-sm md:text-md tracking-widest uppercase font-semibold z-50 bg-transparent">
       {/* Left Menu - Desktop Only */}
-      <div className="hidden sm:flex gap-8">
+      <div className="hidden sm:flex gap-4 md:gap-6 lg:gap-8">
         <a href="#our-story" className="hover:underline">OUR STORY</a>
         <a href="#travel-stay" className="hover:underline">TRAVEL & STAY</a>
         <div className="relative group">
@@ -36,12 +36,12 @@ const Navbar = () => {
       </button>
 
       {/* Logo - Centered (Desktop Only) */}
-      <h1 className="hidden sm:block absolute left-1/2 -translate-x-1/2 font-[Bodoni Moda] text-2xl sm:text-4xl tracking-wide text-center pointer-events-none z-50">
+      <h1 className="hidden sm:block absolute left-1/2 -translate-x-1/2 font-[Bodoni Moda] text-xl md:text-3xl lg:text-4xl tracking-wide text-center pointer-events-none z-50">
         JUSTIN & JULIA
       </h1>
 
       {/* Right Menu - Desktop Only */}
-      <div className="hidden sm:flex gap-6 items-center">
+      <div className="hidden sm:flex gap-4 md:gap-6 items-center">
         <a href="#faqs" className="hover:underline">FAQS</a>
         <a href="#rsvp" className="border border-[var(--text-accent)] px-4 py-1 rounded hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors">RSVP</a>
       </div>

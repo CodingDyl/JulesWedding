@@ -32,11 +32,11 @@ export default function ThankYouPage() {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 flex-1 flex items-center justify-center px-8 py-20">
+      <div className="relative z-10 flex-1 flex items-center justify-center px-4 md:px-8 py-16 md:py-20">
         <div className="max-w-3xl mx-auto text-center">
           {/* Thank You Message */}
           <div className="mb-12">
-            <h1 className="font-dancing-script text-6xl md:text-8xl text-[var(--text-accent)] mb-8">
+            <h1 className="font-dancing-script text-5xl md:text-6xl lg:text-8xl text-[var(--text-accent)] mb-8">
               Thank You!
             </h1>
             <div className="w-32 h-px bg-[var(--foreground)] mx-auto mb-8"></div>

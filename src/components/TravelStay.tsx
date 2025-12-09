@@ -4,7 +4,7 @@ import just_6 from "../assets/just_6.jpeg";
 
 const TravelStay = () => {
   return (
-    <section id="travel-stay" className="py-20 px-8 bg-transparent relative">
+    <section id="travel-stay" className="py-16 md:py-20 px-4 md:px-8 bg-transparent relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -75,7 +75,7 @@ const TravelStay = () => {
                 </div>
               </div>
             </div>
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
               {/* Accommodation Option 1 */}
               <div className="border border-[var(--text-main)] rounded-lg p-8 bg-[var(--bg-secondary)]/5">
                 <h4 className="font-dancing-script text-2xl text-[var(--text-accent)] mb-4">
@@ -157,7 +157,7 @@ const TravelStay = () => {
             <h3 className="font-dancing-script text-3xl text-[var(--text-accent)] mb-6 text-center">
               Further from Venue
             </h3>
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
               {/* Accommodation Option 3 */}
               <div className="border border-[var(--text-main)] rounded-lg p-8 bg-[var(--bg-secondary)]/5">
                 <h4 className="font-dancing-script text-2xl text-[var(--text-accent)] mb-4">

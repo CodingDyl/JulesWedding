@@ -4,7 +4,7 @@ import just_4 from "../assets/just_4.jpeg";
 
 const EventDetails = () => {
   return (
-    <section id="event" className="py-20 px-8 bg-transparent relative">
+    <section id="event" className="py-16 md:py-20 px-4 md:px-8 bg-transparent relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -15,9 +15,9 @@ const EventDetails = () => {
         </div>
 
         {/* Date and Time with Images */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           {/* Mobile: Images above date */}
-          <div className="flex justify-center gap-4 mb-6 lg:hidden">
+          <div className="flex justify-center gap-3 md:gap-4 mb-6 lg:hidden">
             <div className="bg-white p-1.5 rounded shadow-lg rotate-[-4deg]">
               <Image
                 src={just_3}
@@ -74,7 +74,7 @@ const EventDetails = () => {
         </div>
 
         {/* Event Schedule */}
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-12 mb-6">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 mb-6">
           {/* Friday Night */}
           <div className="text-center p-8 border border-[var(--text-main)] rounded-lg bg-[var(--bg-secondary)]/10">
             <div className="mb-6">

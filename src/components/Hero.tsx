@@ -16,18 +16,18 @@ const Hero = () => (
     {/* Date */}
     <div className="relative z-10 w-full flex flex-col items-center justify-center">
       {/* Mobile Title - Only visible on mobile */}
-      <h1 className="sm:hidden font-[Bodoni_Moda] text-4xl tracking-wide text-center mb-4">
+      <h1 className="sm:hidden font-[Bodoni_Moda] text-3xl tracking-wide text-center mb-6">
         JUSTIN & JULIA
       </h1>
       
       {/* Date Overlay */}
       <div className="w-full h-full flex items-center justify-center mb-8 md:mb-0 md:absolute md:-top-1/3">
-        <span className="font-dancing-script text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-[var(--text-accent)] tracking-widest text-center px-4 sm:px-8 py-4">
+        <span className="font-dancing-script text-4xl sm:text-5xl md:text-7xl lg:text-9xl text-[var(--text-accent)] tracking-widest text-center px-4 sm:px-8 py-4">
           09 · 05 · 2026
         </span>
       </div>
       {/* Images Row */}
-      <div className="flex items-center justify-center w-full gap-4 sm:gap-8 md:gap-32 lg:gap-64">
+      <div className="flex items-center justify-center w-full gap-4 sm:gap-6 md:gap-16 lg:gap-32 xl:gap-64">
         {/* Left Image */}
         <div className="hidden sm:block">
           <div className="bg-white p-2 rounded shadow-xl">
@@ -36,7 +36,7 @@ const Hero = () => (
               alt="wedding left"
               width={300}
               height={300}
-              className="object-cover rounded w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px]"
+              className="object-cover rounded w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[220px] md:h-[220px] lg:w-[280px] lg:h-[280px] xl:w-[300px] xl:h-[300px]"
             />
           </div>
         </div>
@@ -48,7 +48,7 @@ const Hero = () => (
               alt="wedding center"
               width={500}
               height={625}
-              className="object-cover rounded w-[300px] sm:w-[400px] md:w-[500px]"
+              className="object-cover rounded w-[280px] sm:w-[320px] md:w-[380px] lg:w-[450px] xl:w-[500px]"
             />
           </div>
         </div>
@@ -60,7 +60,7 @@ const Hero = () => (
               alt="wedding right"
               width={300}
               height={300}
-              className="object-cover rounded w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px]"
+              className="object-cover rounded w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] md:w-[220px] md:h-[220px] lg:w-[280px] lg:h-[280px] xl:w-[300px] xl:h-[300px]"
             />
           </div>
         </div>
