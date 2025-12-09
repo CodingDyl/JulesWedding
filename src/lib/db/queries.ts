@@ -2,20 +2,35 @@ import { prisma } from './prisma';
 import type { RSVP, Guest, Song, RSVPSubmission } from './types';
 
 // RSVP queries
+export async function checkExistingRSVP(email: string) {
+  try {
+    const existingRSVP = await prisma.rSVP.findFirst({
+      where: {
+        email: email.toLowerCase(),
+      },
+    });
+    
+    return existingRSVP !== null;
+  } catch (error) {
+    console.error('Error checking existing RSVP:', error);
+    throw error;
+  }
+}
+
 export async function createRSVP(data: RSVPSubmission) {
   try {
     // Create RSVP with guests in a transaction
     const rsvp = await prisma.rSVP.create({
       data: {
         name: data.name,
-        email: data.email,
+        email: data.email.toLowerCase(), // Normalize email to lowercase
         attending: data.attending,
         dietary: data.dietary || null,
         message: data.message || null,
         guests: {
           create: data.guests.map(guest => ({
             name: guest.name,
-            email: guest.email,
+            email: guest.email.toLowerCase(), // Normalize guest emails too
             dietary: guest.dietary || null,
           })),
         },

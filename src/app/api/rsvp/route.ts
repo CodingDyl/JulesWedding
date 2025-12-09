@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createRSVP } from '@/lib/db/queries';
+import { createRSVP, checkExistingRSVP } from '@/lib/db/queries';
 import { sendRSVPNotification } from '@/lib/email';
 import type { RSVPSubmission } from '@/lib/db/types';
 
@@ -20,6 +20,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Invalid attending value. Must be "yes" or "no"' },
         { status: 400 }
+      );
+    }
+
+    // Check if email has already RSVP'd
+    const hasAlreadyRSVPd = await checkExistingRSVP(body.email);
+    if (hasAlreadyRSVPd) {
+      return NextResponse.json(
+        { error: 'You have already submitted an RSVP. If you need to update your RSVP, please contact us directly.' },
+        { status: 409 }
       );
     }
 

@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface Guest {
   id: string;
@@ -9,6 +10,7 @@ interface Guest {
 }
 
 const RSVP = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -63,22 +65,8 @@ const RSVP = () => {
         throw new Error(data.error || 'Failed to submit RSVP');
       }
 
-      // Success!
-      setSubmitSuccess(true);
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        attending: '',
-        dietary: '',
-        message: ''
-      });
-      setGuests([]);
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 5000);
+      // Success! Redirect to thank you page
+      router.push('/thank-you');
     } catch (error) {
       console.error('RSVP submission error:', error);
       setSubmitError(error instanceof Error ? error.message : 'Failed to submit RSVP. Please try again.');
