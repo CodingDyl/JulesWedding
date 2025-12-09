@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Countdown from "../components/Countdown";
@@ -12,7 +13,21 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] flex flex-col font-sans">
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] flex flex-col font-sans relative">
+      {/* Global Background Image */}
+      <div className="fixed inset-0 z-0">
+        <Image
+          src="/bg_image.png"
+          alt="Background"
+          fill
+          className="object-cover opacity-40"
+          priority
+        />
+        <div className="absolute inset-0 bg-[var(--background)]/60" />
+      </div>
+      
+      {/* Content - all sections will be above the background */}
+      <div className="relative z-10">
       {/* Navigation */}
       <Navbar />
       
@@ -45,6 +60,7 @@ export default function Home() {
       
       {/* Footer */}
       <Footer />
+      </div>
     </div>
   );
 }

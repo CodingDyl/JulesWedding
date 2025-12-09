@@ -30,7 +30,7 @@ const Countdown = () => {
   }, []);
 
   return (
-    <section className="py-20 px-8 bg-[var(--background)]">
+    <section className="py-20 px-8 bg-transparent relative">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="font-dancing-script text-4xl md:text-6xl text-[var(--text-accent)] mb-8">
           Counting Down to Our Special Day

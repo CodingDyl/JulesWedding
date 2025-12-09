@@ -5,7 +5,7 @@ import just_2 from "../assets/just_2.jpeg";
 
 const OurStory = () => {
   return (
-    <section id="our-story" className="py-20 px-8 bg-[var(--background)]">
+    <section id="our-story" className="py-20 px-8 bg-transparent relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

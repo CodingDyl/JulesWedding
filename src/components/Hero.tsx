@@ -2,16 +2,16 @@ import Image from "next/image";
 import { hero_image_1, hero_image_2, hero_image_3 } from "../assets";
 const Hero = () => (
   <main className="min-h-screen flex-1 flex flex-col px-8 items-center justify-center relative overflow-hidden">
-    {/* Background Image */}
+    {/* Hero-specific background overlay for 80% opacity */}
     <div className="absolute inset-0 z-0">
       <Image
         src="/bg_image.png"
         alt="Background"
         fill
-        className="object-cover opacity-60"
+        className="object-cover opacity-80"
         priority
       />
-      <div className="absolute inset-0 bg-[var(--background)]/60" />
+      <div className="absolute inset-0 bg-[var(--background)]/40" />
     </div>
     {/* Date */}
     <div className="relative z-10 w-full flex flex-col items-center justify-center">
@@ -30,35 +30,39 @@ const Hero = () => (
       <div className="flex items-center justify-center w-full gap-4 sm:gap-8 md:gap-32 lg:gap-64">
         {/* Left Image */}
         <div className="hidden sm:block">
-          <Image
-            src={hero_image_2}
-            alt="wedding left"
-            width={300}
-            height={300}
-            className="object-cover rounded shadow-lg w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px]"
-          />
+          <div className="bg-white p-2 rounded shadow-xl">
+            <Image
+              src={hero_image_2}
+              alt="wedding left"
+              width={300}
+              height={300}
+              className="object-cover rounded w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px]"
+            />
+          </div>
         </div>
         {/* Center Image */}
         <div className="flex flex-col items-center">
-          <div>
+          <div className="bg-white p-2 rounded shadow-xl">
             <Image
               src={hero_image_1}
               alt="wedding center"
               width={500}
               height={625}
-              className="object-cover rounded shadow-xl w-[300px] sm:w-[400px] md:w-[500px]"
+              className="object-cover rounded w-[300px] sm:w-[400px] md:w-[500px]"
             />
           </div>
         </div>
         {/* Right Image */}
         <div className="hidden sm:block">
-          <Image
-            src={hero_image_3}
-            alt="wedding right"
-            width={300}
-            height={300}
-            className="object-cover rounded shadow-lg w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px]"
-          />
+          <div className="bg-white p-2 rounded shadow-xl">
+            <Image
+              src={hero_image_3}
+              alt="wedding right"
+              width={300}
+              height={300}
+              className="object-cover rounded w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px]"
+            />
+          </div>
         </div>
       </div>
     </div>

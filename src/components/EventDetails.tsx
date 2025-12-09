@@ -4,7 +4,7 @@ import just_4 from "../assets/just_4.jpeg";
 
 const EventDetails = () => {
   return (
-    <section id="event" className="py-20 px-8 bg-[var(--background)]">
+    <section id="event" className="py-20 px-8 bg-transparent relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

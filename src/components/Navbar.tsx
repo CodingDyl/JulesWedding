@@ -14,7 +14,7 @@ const Navbar = () => {
           <a href="#info" className="hover:underline">INFO</a>
           <div className="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
             <div className="bg-[var(--bg-primary)]/90 backdrop-blur-sm border border-[var(--text-main)] rounded shadow-lg py-2 min-w-[150px]">
-              <a href="#menu" className="block px-4 py-2 hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors">MENU</a>
+              <a href="#music-requests" className="block px-4 py-2 hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors">SONGS</a>
               <a href="#event" className="block px-4 py-2 hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors">EVENT</a>
               <a href="#registry" className="block px-4 py-2 hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors">REGISTRY</a>
             </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
           <a href="#our-story" className="hover:underline" onClick={() => setIsMenuOpen(false)}>OUR STORY</a>
           <a href="#travel-stay" className="hover:underline" onClick={() => setIsMenuOpen(false)}>TRAVEL & STAY</a>
           <a href="#info" className="hover:underline" onClick={() => setIsMenuOpen(false)}>INFO</a>
-          <a href="#menu" className="hover:underline" onClick={() => setIsMenuOpen(false)}>MENU</a>
+          <a href="#music-requests" className="hover:underline" onClick={() => setIsMenuOpen(false)}>SONGS</a>
           <a href="#event" className="hover:underline" onClick={() => setIsMenuOpen(false)}>EVENT</a>
           <a href="#registry" className="hover:underline" onClick={() => setIsMenuOpen(false)}>REGISTRY</a>
           <a href="#faqs" className="hover:underline" onClick={() => setIsMenuOpen(false)}>FAQS</a>

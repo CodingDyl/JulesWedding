@@ -57,7 +57,7 @@ const SpotifyList = () => {
   };
 
   return (
-    <section id="music-requests" className="py-20 px-8 bg-[var(--background)]">
+    <section id="music-requests" className="py-20 px-8 bg-transparent relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">

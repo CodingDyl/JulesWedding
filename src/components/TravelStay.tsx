@@ -4,7 +4,7 @@ import just_6 from "../assets/just_6.jpeg";
 
 const TravelStay = () => {
   return (
-    <section id="travel-stay" className="py-20 px-8 bg-[var(--background)]">
+    <section id="travel-stay" className="py-20 px-8 bg-transparent relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
