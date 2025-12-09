@@ -1,9 +1,25 @@
 import Image from "next/image";
 import { hero_image_1, hero_image_2, hero_image_3 } from "../assets";
 const Hero = () => (
-  <main className="min-h-screen flex-1 flex flex-col px-8 items-center justify-center">
+  <main className="min-h-screen flex-1 flex flex-col px-8 items-center justify-center relative overflow-hidden">
+    {/* Background Image */}
+    <div className="absolute inset-0 z-0">
+      <Image
+        src="/bg_image.png"
+        alt="Background"
+        fill
+        className="object-cover opacity-60"
+        priority
+      />
+      <div className="absolute inset-0 bg-[var(--background)]/60" />
+    </div>
     {/* Date */}
-    <div className="relative w-full flex flex-col items-center justify-center">
+    <div className="relative z-10 w-full flex flex-col items-center justify-center">
+      {/* Mobile Title - Only visible on mobile */}
+      <h1 className="sm:hidden font-[Bodoni_Moda] text-4xl tracking-wide text-center mb-4">
+        JUSTIN & JULIA
+      </h1>
+      
       {/* Date Overlay */}
       <div className="w-full h-full flex items-center justify-center mb-8 md:mb-0 md:absolute md:-top-1/3">
         <span className="font-dancing-script text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-[var(--text-accent)] tracking-widest text-center px-4 sm:px-8 py-4">

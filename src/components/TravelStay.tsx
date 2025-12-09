@@ -1,3 +1,7 @@
+import Image from "next/image";
+import just_5 from "../assets/just_5.jpeg";
+import just_6 from "../assets/just_6.jpeg";
+
 const TravelStay = () => {
   return (
     <section id="travel-stay" className="py-20 px-8 bg-[var(--background)]">
@@ -7,6 +11,9 @@ const TravelStay = () => {
           <h2 className="font-dancing-script text-5xl md:text-7xl text-[var(--text-accent)] mb-4">
             Travel & Stay
           </h2>
+          <p className="font-libre-baskerville text-lg mb-4 mt-2">
+          We have reached out to those guests who will be staying at the venue, please see below recommended accommodation for those guests not staying at the venue
+          </p>
           <div className="w-24 h-px bg-[var(--foreground)] mx-auto"></div>
         </div>
 
@@ -14,9 +21,60 @@ const TravelStay = () => {
         <div className="space-y-8 mb-16">
           {/* Close Accommodations */}
           <div>
-            <h3 className="font-dancing-script text-3xl text-[var(--text-accent)] mb-6 text-center">
-              Close to Venue
-            </h3>
+            {/* Mobile: Images above heading */}
+            <div className="flex justify-center gap-4 mb-4 md:hidden">
+              <div className="bg-white p-1.5 rounded shadow-lg rotate-[-4deg]">
+                <Image
+                  src={just_5}
+                  alt="Justin and Julia"
+                  width={70}
+                  height={88}
+                  className="object-cover rounded w-[70px] h-[88px]"
+                />
+              </div>
+              <div className="bg-white p-1.5 rounded shadow-lg rotate-[4deg]">
+                <Image
+                  src={just_6}
+                  alt="Justin and Julia"
+                  width={70}
+                  height={88}
+                  className="object-cover rounded w-[70px] h-[88px]"
+                />
+              </div>
+            </div>
+            
+            {/* Desktop: Images alongside heading */}
+            <div className="flex items-center justify-center gap-8 mb-6">
+              {/* Left image - desktop only */}
+              <div className="hidden md:block">
+                <div className="bg-white p-2 rounded shadow-lg rotate-[-4deg] hover:rotate-0 transition-transform duration-300">
+                  <Image
+                    src={just_5}
+                    alt="Justin and Julia"
+                    width={100}
+                    height={125}
+                    className="object-cover rounded w-[80px] h-[100px]"
+                  />
+                </div>
+              </div>
+              
+              <h3 className="font-dancing-script text-3xl text-[var(--text-accent)] text-center">
+                Close to Venue
+              </h3>
+              
+              {/* Right image - desktop only */}
+              <div className="hidden md:block">
+                <div className="bg-white p-2 rounded shadow-lg rotate-[4deg] hover:rotate-0 transition-transform duration-300">
+                  <Image
+                    src={just_6}
+                    alt="Justin and Julia"
+                    width={100}
+                    height={125}
+                    className="object-cover rounded w-[80px] h-[100px]"
+                  />
+                </div>
+              </div>
+            </div>
             <div className="grid md:grid-cols-2 gap-12">
               {/* Accommodation Option 1 */}
               <div className="border border-[var(--text-main)] rounded-lg p-8 bg-[var(--bg-secondary)]/5">
@@ -121,6 +179,9 @@ const TravelStay = () => {
                     </p>
                     <p className="font-libre-baskerville text-sm">
                       <span className="font-semibold">Distance from Venue:</span> Approximately 15-20 km from Oranje Guest Farm
+                    </p>
+                    <p className="font-libre-baskerville text-sm">
+                      <span className="font-bold">Please Note:</span> This venue only accepts a minimum of 4 nights stay
                     </p>
                     <p className="font-libre-baskerville text-sm">
                       <span className="font-semibold">Google Rating:</span> 4.4

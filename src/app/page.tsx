@@ -1,9 +1,7 @@
-import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Countdown from "../components/Countdown";
 import OurStory from "../components/OurStory";
-import ImagesGallery from "../components/ImagesGallery";
 import EventDetails from "../components/EventDetails";
 import TravelStay from "../components/TravelStay";
 import Registry from "../components/Registry";
@@ -26,9 +24,6 @@ export default function Home() {
       
       {/* Our Story */}
       <OurStory />
-      
-      {/* Images Gallery */}
-      <ImagesGallery />
       
       {/* Event Details */}
       <EventDetails />

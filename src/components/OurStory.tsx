@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { hero_image_1 } from "../assets";
+import just_1 from "../assets/just_1.jpeg";
+import just_2 from "../assets/just_2.jpeg";
 
 const OurStory = () => {
   return (
@@ -29,16 +31,90 @@ const OurStory = () => {
               We can't wait for so many more years of bringing out the best in each other, surrounded by the people we love most in the world.
             </p>
           </div>
-          <div className="relative">
-            <Image
-              src={hero_image_1}
-              alt="Justin and Jules"
-              width={500}
-              height={600}
-              className="object-cover rounded-lg shadow-xl"
-            />
-            <div className="absolute -bottom-4 -right-4 bg-[var(--text-accent)] text-[var(--bg-primary)] px-6 py-3 rounded-lg">
-              <span className="font-dancing-script text-xl">2025 | Cape Town, South Africa</span>
+          
+          {/* Photo Collage - Desktop */}
+          <div className="hidden sm:block relative h-[500px] md:h-[600px]">
+            {/* Main Image */}
+            <div className="absolute top-0 left-0 md:left-8 z-10">
+              <div className="bg-white p-2 rounded shadow-xl rotate-[-3deg] hover:rotate-0 transition-transform duration-300">
+                <Image
+                  src={hero_image_1}
+                  alt="Justin and Jules"
+                  width={320}
+                  height={400}
+                  className="object-cover rounded w-[260px] h-[320px] md:w-[320px] md:h-[400px]"
+                />
+              </div>
+              <div className="absolute -bottom-2 left-4 bg-[var(--text-accent)] text-[var(--bg-primary)] px-4 py-2 rounded-lg">
+                <span className="font-dancing-script text-base md:text-lg">2025 | Cape Town</span>
+              </div>
+            </div>
+            
+            {/* Secondary Image - Top Right */}
+            <div className="absolute top-4 right-0 md:right-0 z-20">
+              <div className="bg-white p-2 rounded shadow-xl rotate-[6deg] hover:rotate-0 transition-transform duration-300">
+                <Image
+                  src={just_1}
+                  alt="Justin and Julia"
+                  width={160}
+                  height={200}
+                  className="object-cover rounded w-[140px] h-[175px] md:w-[160px] md:h-[200px]"
+                />
+              </div>
+            </div>
+            
+            {/* Tertiary Image - Bottom Right */}
+            <div className="absolute bottom-8 right-4 md:right-12 z-30">
+              <div className="bg-white p-2 rounded shadow-xl rotate-[-5deg] hover:rotate-0 transition-transform duration-300">
+                <Image
+                  src={just_2}
+                  alt="Justin and Julia"
+                  width={180}
+                  height={220}
+                  className="object-cover rounded w-[150px] h-[185px] md:w-[180px] md:h-[220px]"
+                />
+              </div>
+            </div>
+          </div>
+          
+          {/* Photo Collage - Mobile */}
+          <div className="sm:hidden flex flex-col items-center gap-6">
+            {/* Main Image */}
+            <div className="relative">
+              <div className="bg-white p-2 rounded shadow-xl">
+                <Image
+                  src={hero_image_1}
+                  alt="Justin and Jules"
+                  width={280}
+                  height={350}
+                  className="object-cover rounded w-[280px] h-[350px]"
+                />
+              </div>
+              <div className="absolute -bottom-2 left-4 bg-[var(--text-accent)] text-[var(--bg-primary)] px-4 py-2 rounded-lg">
+                <span className="font-dancing-script text-base">2025 | Cape Town</span>
+              </div>
+            </div>
+            
+            {/* Secondary Images Row */}
+            <div className="flex gap-4 mt-4">
+              <div className="bg-white p-2 rounded shadow-lg rotate-[-4deg]">
+                <Image
+                  src={just_1}
+                  alt="Justin and Julia"
+                  width={130}
+                  height={160}
+                  className="object-cover rounded w-[130px] h-[160px]"
+                />
+              </div>
+              <div className="bg-white p-2 rounded shadow-lg rotate-[4deg]">
+                <Image
+                  src={just_2}
+                  alt="Justin and Julia"
+                  width={130}
+                  height={160}
+                  className="object-cover rounded w-[130px] h-[160px]"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="relative flex justify-between items-center px-8 pt-8 text-md tracking-widest uppercase font-semibold z-50">
+    <nav className="absolute top-0 left-0 right-0 flex justify-between items-center px-8 pt-8 text-md tracking-widest uppercase font-semibold z-50 bg-transparent">
       {/* Left Menu - Desktop Only */}
       <div className="hidden sm:flex gap-8">
         <a href="#our-story" className="hover:underline">OUR STORY</a>
@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="relative group">
           <a href="#info" className="hover:underline">INFO</a>
           <div className="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
-            <div className="bg-[var(--bg-primary)] border border-[var(--text-main)] rounded shadow-lg py-2 min-w-[150px]">
+            <div className="bg-[var(--bg-primary)]/90 backdrop-blur-sm border border-[var(--text-main)] rounded shadow-lg py-2 min-w-[150px]">
               <a href="#menu" className="block px-4 py-2 hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors">MENU</a>
               <a href="#event" className="block px-4 py-2 hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors">EVENT</a>
               <a href="#registry" className="block px-4 py-2 hover:bg-[var(--text-accent)] hover:text-[var(--bg-primary)] transition-colors">REGISTRY</a>
@@ -35,8 +35,8 @@ const Navbar = () => {
         </div>
       </button>
 
-      {/* Logo - Centered */}
-      <h1 className="absolute left-1/2 -translate-x-1/2 font-[Bodoni Moda] text-2xl sm:text-4xl tracking-wide text-center pointer-events-none z-50">
+      {/* Logo - Centered (Desktop Only) */}
+      <h1 className="hidden sm:block absolute left-1/2 -translate-x-1/2 font-[Bodoni Moda] text-2xl sm:text-4xl tracking-wide text-center pointer-events-none z-50">
         JUSTIN & JULIA
       </h1>
 

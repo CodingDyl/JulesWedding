@@ -1,9 +1,24 @@
+import Image from "next/image";
+import just_7 from "../assets/just_7.jpeg";
+
 const Registry = () => {
   return (
     <section id="registry" className="py-20 px-8 bg-[var(--background)]">
       <div className="max-w-4xl mx-auto text-center">
-        {/* Section Header */}
-        <div className="mb-16">
+        {/* Section Header with Image */}
+        <div className="mb-16 relative">
+          {/* Decorative image */}
+          <div className="flex justify-center mb-6">
+            <div className="bg-white p-2 rounded shadow-lg rotate-[2deg] hover:rotate-0 transition-transform duration-300">
+              <Image
+                src={just_7}
+                alt="Justin and Julia"
+                width={180}
+                height={225}
+                className="object-cover rounded w-[150px] h-[185px] md:w-[180px] md:h-[225px]"
+              />
+            </div>
+          </div>
           <h2 className="font-dancing-script text-5xl md:text-7xl text-[var(--text-accent)] mb-4">
             Registry
           </h2>
@@ -26,19 +41,19 @@ const Registry = () => {
           <div className="space-y-4">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between py-3 border-b border-[var(--text-main)]/20">
               <span className="font-libre-baskerville font-semibold text-lg mb-2 md:mb-0">Bank Name:</span>
-              <span className="font-libre-baskerville text-lg">[Bank Name]</span>
+              <span className="font-libre-baskerville text-lg">Discovery Bank</span>
             </div>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between py-3 border-b border-[var(--text-main)]/20">
               <span className="font-libre-baskerville font-semibold text-lg mb-2 md:mb-0">Account Holder:</span>
-              <span className="font-libre-baskerville text-lg">[Account Holder Name]</span>
+              <span className="font-libre-baskerville text-lg">Justin Blume</span>
             </div>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between py-3 border-b border-[var(--text-main)]/20">
               <span className="font-libre-baskerville font-semibold text-lg mb-2 md:mb-0">Account Number:</span>
-              <span className="font-libre-baskerville text-lg font-mono">[Account Number]</span>
+              <span className="font-libre-baskerville text-lg font-mono">10655542843</span>
             </div>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between py-3 border-b border-[var(--text-main)]/20">
               <span className="font-libre-baskerville font-semibold text-lg mb-2 md:mb-0">Branch Code:</span>
-              <span className="font-libre-baskerville text-lg font-mono">[Branch Code]</span>
+              <span className="font-libre-baskerville text-lg font-mono">679000</span>
             </div>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between py-3">
               <span className="font-libre-baskerville font-semibold text-lg mb-2 md:mb-0">Reference:</span>

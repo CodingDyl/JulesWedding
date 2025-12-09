@@ -1,5 +1,7 @@
 'use client'
 import React, { useState } from 'react';
+import Image from "next/image";
+import just_8 from "../assets/just_8.jpeg";
 
 interface FAQItem {
   question: string;
@@ -11,52 +13,32 @@ const FAQ = () => {
 
   const faqs: FAQItem[] = [
     {
-      question: "What time should I arrive?",
-      answer: "Please arrive by 4:00 PM for the ceremony. The ceremony will begin promptly at 4:30 PM. We recommend arriving a bit early to find parking and get seated comfortably."
-    },
-    {
-      question: "What is the dress code?",
-      answer: "We've requested Black Tie Optional attire. For men, this means a dark suit or tuxedo. For women, cocktail dresses or evening gowns are perfect. We want everyone to feel elegant and comfortable."
-    },
-    {
       question: "Will the ceremony and reception be indoors or outdoors?",
       answer: "The ceremony will be held indoors at our venue. The reception will also be indoors, with a beautiful view. Both venues are climate-controlled for your comfort."
     },
     {
       question: "Can I bring a plus one?",
-      answer: "We've allocated specific seating arrangements for our wedding. Please check your invitation or RSVP for details about additional guests. If you have questions, please reach out to us directly."
+      answer: "Plus ones have been included in the invitation where invited. If you have any questions please feel free to reach out to us directly."
     },
     {
       question: "What will the weather be like?",
-      answer: "While we hope for beautiful weather, the event will proceed rain or shine as both ceremony and reception are indoors. We recommend checking the forecast and dressing accordingly for traveling to and from the venue."
+      answer: "As the venue is in Clarens in May the weather will be chilly so please bring something warm to wear. We recommend making a stop past the Jacket Shop in Clarens if you haven't been before!"
     },
     {
       question: "Is there parking available?",
-      answer: "Yes, there is complimentary parking available at both the ceremony and reception venues. Valet parking will also be available at the reception location."
+      answer: "Parking is available at the venue for those not staying at the venue and the same parking can be used for both the ceremony and the reception. For those staying at the venue, parking is available at the chalets and also closer to the chapel and reception hall."
     },
     {
       question: "Will there be an open bar?",
-      answer: "Yes! We'll have an open bar during the cocktail hour and reception. We'll have a variety of beer, wine, and signature cocktails for you to enjoy."
+      answer: "There will be an open bar for certain drinks throughout the reception and a cash bar for hard liquor."
     },
     {
       question: "Are children welcome?",
-      answer: "While we love your little ones, we've decided to have an adults-only celebration. This allows everyone to relax and enjoy the evening. We appreciate your understanding."
-    },
-    {
-      question: "Do you have a registry?",
-      answer: "Your presence at our wedding is the greatest gift! However, if you'd like to give a gift, we've registered at a few places. You can find our registry information on our website or by visiting the Registry section."
+      answer: "While we love your little ones, we have decided not to have any children at our celebration."
     },
     {
       question: "Can I take photos during the ceremony?",
       answer: "We're having an unplugged ceremony, which means we kindly ask that you put away phones and cameras during the ceremony. Our professional photographer will capture all the special moments, and we're happy to share those photos with you afterward. Feel free to take photos during the reception!"
-    },
-    {
-      question: "What if I have dietary restrictions?",
-      answer: "Please let us know about any dietary restrictions or allergies when you RSVP. We'll work with our caterer to accommodate your needs. If you've already RSVP'd and need to update your dietary information, please contact us directly."
-    },
-    {
-      question: "Will there be transportation between venues?",
-      answer: "Yes, we'll have a complimentary shuttle service running between the ceremony and reception venues. The shuttle will be available before the ceremony and after the reception ends."
     }
   ];
 
@@ -88,7 +70,7 @@ const FAQ = () => {
               {/* Question */}
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-[var(--bg-secondary)]/30 transition-colors duration-300"
+                className="w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-[var(--bg-secondary)]/30 transition-colors duration-300 hover:cursor-pointer"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
               >
@@ -131,7 +113,19 @@ const FAQ = () => {
 
         {/* Contact Section */}
         <div className="mt-16 text-center">
-            <div className="border border-[var(--text-main)] rounded-lg p-8 max-w-2xl mx-auto bg-[var(--bg-secondary)]/10">
+          <div className="border border-[var(--text-main)] rounded-lg p-8 max-w-2xl mx-auto bg-[var(--bg-secondary)]/10">
+            {/* Decorative image */}
+            <div className="flex justify-center mb-6">
+              <div className="bg-white p-2 rounded shadow-lg rotate-[-3deg] hover:rotate-0 transition-transform duration-300">
+                <Image
+                  src={just_8}
+                  alt="Justin and Julia"
+                  width={140}
+                  height={175}
+                  className="object-cover rounded w-[120px] h-[150px]"
+                />
+              </div>
+            </div>
             <h3 className="font-dancing-script text-3xl text-[var(--text-accent)] mb-4">
               Still Have Questions?
             </h3>
