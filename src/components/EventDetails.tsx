@@ -22,18 +22,18 @@ const EventDetails = () => {
               <Image
                 src={just_3}
                 alt="Justin and Julia"
-                width={100}
-                height={125}
-                className="object-cover rounded w-[80px] h-[100px] sm:w-[100px] sm:h-[125px]"
+                width={140}
+                height={175}
+                className="object-cover rounded w-[120px] h-[150px] sm:w-[140px] sm:h-[175px]"
               />
             </div>
             <div className="bg-white p-1.5 rounded shadow-lg rotate-[4deg]">
               <Image
                 src={just_4}
                 alt="Justin and Julia"
-                width={100}
-                height={125}
-                className="object-cover rounded w-[80px] h-[100px] sm:w-[100px] sm:h-[125px]"
+                width={140}
+                height={175}
+                className="object-cover rounded w-[120px] h-[150px] sm:w-[140px] sm:h-[175px]"
               />
             </div>
           </div>

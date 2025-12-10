@@ -15,7 +15,7 @@ const Registry = () => {
                 alt="Justin and Julia"
                 width={180}
                 height={225}
-                className="object-cover rounded w-[150px] h-[185px] md:w-[180px] md:h-[225px]"
+                className="object-cover rounded w-[180px] h-[225px] md:w-[180px] md:h-[225px]"
               />
             </div>
           </div>

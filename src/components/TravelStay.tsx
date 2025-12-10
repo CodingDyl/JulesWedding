@@ -27,18 +27,18 @@ const TravelStay = () => {
                 <Image
                   src={just_5}
                   alt="Justin and Julia"
-                  width={70}
-                  height={88}
-                  className="object-cover rounded w-[70px] h-[88px]"
+                  width={100}
+                  height={125}
+                  className="object-cover rounded w-[100px] h-[125px]"
                 />
               </div>
               <div className="bg-white p-1.5 rounded shadow-lg rotate-[4deg]">
                 <Image
                   src={just_6}
                   alt="Justin and Julia"
-                  width={70}
-                  height={88}
-                  className="object-cover rounded w-[70px] h-[88px]"
+                  width={100}
+                  height={125}
+                  className="object-cover rounded w-[100px] h-[125px]"
                 />
               </div>
             </div>

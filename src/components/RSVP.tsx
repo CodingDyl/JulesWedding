@@ -311,7 +311,7 @@ const RSVP = () => {
         {/* RSVP Deadline */}
         <div className="text-center mt-12 p-6 border border-[var(--text-main)] rounded-lg bg-[var(--bg-secondary)]/10">
           <p className="font-libre-baskerville text-lg">
-            Please RSVP by <span className="font-semibold">28 February 2026</span>
+            Please RSVP by <span className="font-semibold">20 January 2026</span>
           </p>
         </div>
       </div>
