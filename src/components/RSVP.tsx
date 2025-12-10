@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface Guest {
@@ -30,9 +30,27 @@ const RSVP = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [isPastDeadline, setIsPastDeadline] = useState(false);
+
+  // RSVP deadline: January 20th, 2026
+  const RSVP_DEADLINE = new Date('2026-01-20T23:59:59');
+
+  useEffect(() => {
+    // Check if current date is past the deadline
+    const now = new Date();
+    setIsPastDeadline(now > RSVP_DEADLINE);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Check if past deadline
+    const now = new Date();
+    if (now > RSVP_DEADLINE) {
+      setSubmitError('The RSVP deadline has passed. Please contact the bride or groom directly.');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitError(null);
     setSubmitSuccess(false);
@@ -154,6 +172,21 @@ const RSVP = () => {
           </h2>
           <div className="w-24 h-px bg-[var(--foreground)] mx-auto"></div>
         </div>
+
+        {/* Past Deadline Warning */}
+        {isPastDeadline && (
+          <div className="mb-8 p-6 border-2 border-red-500 rounded-lg bg-red-50 text-center">
+            <h3 className="font-dancing-script text-2xl text-red-700 mb-2">
+              RSVP Deadline Has Passed
+            </h3>
+            <p className="font-libre-baskerville text-lg text-red-700">
+              We're sorry, but the RSVP deadline of January 20th, 2026 has passed. 
+            </p>
+            <p className="font-libre-baskerville text-base text-red-600 mt-2">
+              Please contact the bride or groom directly if you would still like to attend.
+            </p>
+          </div>
+        )}
 
         {/* RSVP Form */}
         <form onSubmit={handleSubmit} className="space-y-8">
@@ -284,10 +317,10 @@ const RSVP = () => {
           <div className="text-center pt-8">
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={isSubmitting || isPastDeadline}
               className="bg-[var(--text-accent)] text-[var(--bg-primary)] px-12 py-4 rounded-lg font-libre-baskerville text-lg hover:bg-[var(--text-main)] transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Submitting...' : 'Send RSVP'}
+              {isSubmitting ? 'Submitting...' : isPastDeadline ? 'RSVP Closed' : 'Send RSVP'}
             </button>
           </div>
 
