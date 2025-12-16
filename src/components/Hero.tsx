@@ -48,7 +48,7 @@ const Hero = () => (
               alt="wedding center"
               width={500}
               height={625}
-              className="object-cover rounded w-[280px] sm:w-[320px] md:w-[380px] lg:w-[450px] xl:w-[500px]"
+              className="object-cover rounded w-[280px] h-[350px] sm:w-[320px] sm:h-[400px] md:w-[380px] md:h-[475px] lg:w-[450px] lg:h-[562px] xl:w-[500px] xl:h-[625px]"
             />
           </div>
         </div>

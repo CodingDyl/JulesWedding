@@ -13,9 +13,9 @@ const Registry = () => {
               <Image
                 src={just_7}
                 alt="Justin and Julia"
-                width={180}
-                height={225}
-                className="object-cover rounded w-[180px] h-[225px] md:w-[180px] md:h-[225px]"
+                width={280}
+                height={350}
+                className="object-cover rounded w-[280px] h-[350px] md:w-[180px] md:h-[225px]"
               />
             </div>
           </div>

@@ -16,24 +16,24 @@ const EventDetails = () => {
 
         {/* Date and Time with Images */}
         <div className="text-center mb-12 md:mb-16">
-          {/* Mobile: Images above date */}
-          <div className="flex justify-center gap-3 md:gap-4 mb-6 lg:hidden">
-            <div className="bg-white p-1.5 rounded shadow-lg rotate-[-4deg]">
+          {/* Mobile: Images above date - stacked vertically */}
+          <div className="flex flex-col items-center gap-6 mb-6 lg:hidden">
+            <div className="bg-white p-2 rounded shadow-lg rotate-[-2deg]">
               <Image
                 src={just_3}
                 alt="Justin and Julia"
-                width={140}
-                height={175}
-                className="object-cover rounded w-[120px] h-[150px] sm:w-[140px] sm:h-[175px]"
+                width={280}
+                height={350}
+                className="object-cover rounded w-[280px] h-[350px]"
               />
             </div>
-            <div className="bg-white p-1.5 rounded shadow-lg rotate-[4deg]">
+            <div className="bg-white p-2 rounded shadow-lg rotate-[2deg]">
               <Image
                 src={just_4}
                 alt="Justin and Julia"
-                width={140}
-                height={175}
-                className="object-cover rounded w-[120px] h-[150px] sm:w-[140px] sm:h-[175px]"
+                width={280}
+                height={350}
+                className="object-cover rounded w-[280px] h-[350px]"
               />
             </div>
           </div>
@@ -90,8 +90,7 @@ const EventDetails = () => {
               </div>
               <div className="pt-4">
                 <h5 className="font-libre-baskerville text-lg font-semibold">Oranje Guest Farm</h5>
-                <p className="font-libre-baskerville text-sm">Drinks will be provided</p>
-                <p className="font-libre-baskerville text-sm italic">Please bring your own meat</p>
+                <p className="font-libre-baskerville text-sm">Please bring your own meat and drinks</p>
               </div>
             </div>
           </div>
@@ -151,7 +150,7 @@ const EventDetails = () => {
           </h3>
           <p className="font-libre-baskerville text-xl mb-2">Formal Attire</p>
           <p className="font-libre-baskerville text-lg text-gray-600 mb-2">
-            Formal attire requested. Dark suits, cocktail dresses, or evening gowns.
+            Formal attire requested.
           </p>
           <p className="font-libre-baskerville text-base text-gray-600 italic">
             Please note that part of the wedding will be outside so we recommend avoiding stiletto heels for the ladies 

@@ -120,9 +120,9 @@ const FAQ = () => {
                 <Image
                   src={just_8}
                   alt="Justin and Julia"
-                  width={140}
-                  height={175}
-                  className="object-cover rounded w-[120px] h-[150px]"
+                  width={280}
+                  height={350}
+                  className="object-cover rounded w-[280px] h-[350px]"
                 />
               </div>
             </div>

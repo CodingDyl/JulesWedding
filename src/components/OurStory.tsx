@@ -95,24 +95,24 @@ const OurStory = () => {
               </div>
             </div>
             
-            {/* Secondary Images Row */}
-            <div className="flex gap-4 mt-4">
-              <div className="bg-white p-2 rounded shadow-lg rotate-[-4deg]">
+            {/* Secondary Images - stacked vertically */}
+            <div className="flex flex-col items-center gap-6 mt-4">
+              <div className="bg-white p-2 rounded shadow-lg rotate-[-2deg]">
                 <Image
                   src={just_1}
                   alt="Justin and Julia"
-                  width={160}
-                  height={200}
-                  className="object-cover rounded w-[160px] h-[200px]"
+                  width={280}
+                  height={350}
+                  className="object-cover rounded w-[280px] h-[350px]"
                 />
               </div>
-              <div className="bg-white p-2 rounded shadow-lg rotate-[4deg]">
+              <div className="bg-white p-2 rounded shadow-lg rotate-[2deg]">
                 <Image
                   src={just_2}
                   alt="Justin and Julia"
-                  width={160}
-                  height={200}
-                  className="object-cover rounded w-[160px] h-[200px]"
+                  width={280}
+                  height={350}
+                  className="object-cover rounded w-[280px] h-[350px]"
                 />
               </div>
             </div>

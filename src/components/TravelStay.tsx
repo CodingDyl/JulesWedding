@@ -21,24 +21,24 @@ const TravelStay = () => {
         <div className="space-y-8 mb-16">
           {/* Close Accommodations */}
           <div>
-            {/* Mobile: Images above heading */}
-            <div className="flex justify-center gap-4 mb-4 md:hidden">
-              <div className="bg-white p-1.5 rounded shadow-lg rotate-[-4deg]">
+            {/* Mobile: Images above heading - stacked vertically */}
+            <div className="flex flex-col items-center gap-6 mb-6 md:hidden">
+              <div className="bg-white p-2 rounded shadow-lg rotate-[-2deg]">
                 <Image
                   src={just_5}
                   alt="Justin and Julia"
-                  width={100}
-                  height={125}
-                  className="object-cover rounded w-[100px] h-[125px]"
+                  width={280}
+                  height={350}
+                  className="object-cover rounded w-[280px] h-[350px]"
                 />
               </div>
-              <div className="bg-white p-1.5 rounded shadow-lg rotate-[4deg]">
+              <div className="bg-white p-2 rounded shadow-lg rotate-[2deg]">
                 <Image
                   src={just_6}
                   alt="Justin and Julia"
-                  width={100}
-                  height={125}
-                  className="object-cover rounded w-[100px] h-[125px]"
+                  width={280}
+                  height={350}
+                  className="object-cover rounded w-[280px] h-[350px]"
                 />
               </div>
             </div>
