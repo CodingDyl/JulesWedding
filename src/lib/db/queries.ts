@@ -1,6 +1,10 @@
 import { prisma } from './prisma';
 import type { RSVP, Guest, Song, RSVPSubmission } from './types';
 
+export interface SongRequestSummary extends Song {
+  request_count: number;
+}
+
 // RSVP queries
 export async function checkExistingRSVP(email: string) {
   try {
@@ -140,6 +144,41 @@ export async function getAllSongs() {
     })) as Song[];
   } catch (error) {
     console.error('Error fetching songs:', error);
+    throw error;
+  }
+}
+
+export async function getSongRequestSummary() {
+  try {
+    const songs = await getAllSongs();
+    const songMap = new Map<string, SongRequestSummary>();
+
+    for (const song of songs) {
+      const normalizedTitle = song.song_title.trim().replace(/\s+/g, ' ').toLowerCase();
+      const normalizedArtist = song.artist.trim().replace(/\s+/g, ' ').toLowerCase();
+      const key = `${normalizedTitle}::${normalizedArtist}`;
+      const existing = songMap.get(key);
+
+      if (existing) {
+        existing.request_count += 1;
+        continue;
+      }
+
+      songMap.set(key, {
+        ...song,
+        request_count: 1,
+      });
+    }
+
+    return Array.from(songMap.values()).sort((a, b) => {
+      if (b.request_count !== a.request_count) {
+        return b.request_count - a.request_count;
+      }
+
+      return new Date(b.created_at ?? 0).getTime() - new Date(a.created_at ?? 0).getTime();
+    });
+  } catch (error) {
+    console.error('Error fetching song summary:', error);
     throw error;
   }
 }
